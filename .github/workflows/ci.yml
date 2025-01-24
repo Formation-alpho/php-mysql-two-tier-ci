@@ -25,16 +25,16 @@ jobs:
       # Step 3: Build the Docker image
       - name: Build Docker image
         run: |
-          docker-compose build -t ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest .
 
       # Step 4: Test the Docker container
       - name: Test the Docker container
         run: |
-          docker-compose run -d --name test-container -p 8101:8101 ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest
+          docker run -d --name test-container -p 8101:8101 ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest
           sleep 10 # Give the container time to start
           curl --fail http://localhost:8101 || exit 1
-          docker-compose stop test-container
-          docker-compose rm test-container
+          docker stop test-container
+          docker rm test-container
 
       # Step 5: Push the Docker image to Docker Hub
       - name: Push Docker image to Docker Hub
