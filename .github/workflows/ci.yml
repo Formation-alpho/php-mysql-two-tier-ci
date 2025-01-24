@@ -1,0 +1,42 @@
+name: CI Pipeline - Build, Test, and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow on pushes to the main branch
+
+jobs:
+  build-test-publish:
+    name: Build, Test, and Publish Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Step 3: Build the Docker image
+      - name: Build Docker image
+        run: |
+          docker-compose build -t ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest .
+
+      # Step 4: Test the Docker container
+      - name: Test the Docker container
+        run: |
+          docker-compose run -d --name test-container -p 8101:8101 ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest
+          sleep 10 # Give the container time to start
+          curl --fail http://localhost:8101 || exit 1
+          docker-compose stop test-container
+          docker-compose rm test-container
+
+      # Step 5: Push the Docker image to Docker Hub
+      - name: Push Docker image to Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/php-mysql-two-tier-ci:latest
