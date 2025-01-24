@@ -1,0 +1,14 @@
+project/
+│
+├── db/
+│   └── db.php          # Fichier pour la connexion à la base de données
+│
+├── pages/
+│   ├── login.php       # Page de connexion
+│   ├── register.php    # Page d'inscription
+│   └── users.php       # Page pour afficher la liste des utilisateurs
+│
+├── assets/
+│   └── styles.css      # Fichier pour la mise en forme (CSS basique)
+│
+└── index.php           # Redirection ou page d'accueil
