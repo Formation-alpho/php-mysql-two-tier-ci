@@ -33,7 +33,7 @@ Before getting started, make sure you have the following:
    ```
 
 3. Access the application:
-   - The PHP application is available at [http://localhost:8080](http://localhost:8080).
+   - The PHP application is available at [http://localhost:8101][def].
    - The MySQL database is exposed on port `3306`.
 
 ## CI/CD Pipeline
@@ -88,3 +88,6 @@ This project is licensed under the MIT License. You are free to use, modify, and
 ![Screenshot 2025-01-25 at 00-16-54 Liste des utilisateurs](screenshots/Screenshot%202025-01-25%20at%2000-16-54%20Liste%20des%20utilisateurs.png)
 
 ![Screenshot 2025-01-25 at 00-18-40 Update ci.yml · Formation-alpho_php-mysql-two-tier-ci@0ee3144](screenshots/Screenshot%202025-01-25%20at%2000-18-40%20Update%20ci.yml%20·%20Formation-alpho_php-mysql-two-tier-ci@0ee3144.png)
+
+
+[def]: http://localhost:8080
