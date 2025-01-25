@@ -77,7 +77,7 @@ Feel free to open an issue or a pull request to suggest improvements.
 This project is licensed under the MIT License. You are free to use, modify, and distribute it.
 
 ## Author: Otniel TAMINI
-```
+
 
 ![Screenshot 2025-01-25 at 00-15-26 Accueil](screenshots/Screenshot%202025-01-25%20at%2000-15-26%20Accueil.png)
 
