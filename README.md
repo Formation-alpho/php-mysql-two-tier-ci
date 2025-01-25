@@ -1,4 +1,4 @@
-```markdown
+
 # PHP Project with MySQL Database - Containerization and CI/CD
 
 This project is a PHP application connected to a MySQL database, fully containerized using Docker. It includes a CI/CD pipeline to automate the build, test, and publish processes for Docker containers on DockerHub.
